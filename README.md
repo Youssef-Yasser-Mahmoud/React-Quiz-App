@@ -2,6 +2,10 @@
 
 A dynamic **Quiz Application** built using **React.js** that allows users to test their knowledge through interactive questions. This app fetches questions from an API and provides an engaging user experience with instant feedback and scoring.  
 
+🚀 **Live Demo:** [Click here to try the app!](https://your-demo-link.com)  
+
+A dynamic **Quiz Application** built using **React.js** that allows users to test their knowledge through interactive questions. This app fetches questions from an API and provides an engaging user experience with instant feedback and scoring.  
+
 ## 🚀 Features  
 
 ✅ **Dynamic Questions:** Fetches quiz questions from an external API.  

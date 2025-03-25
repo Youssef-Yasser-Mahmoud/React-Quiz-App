@@ -1,17 +1,34 @@
-<<<<<<< HEAD
-# React-Quiz-App
-React-Quiz-App Using React.js
-=======
-# React + Vite
+# React Quiz App 🧠🎯  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic **Quiz Application** built using **React.js** that allows users to test their knowledge through interactive questions. This app fetches questions from an API and provides an engaging user experience with instant feedback and scoring.  
 
-Currently, two official plugins are available:
+## 🚀 Features  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ **Dynamic Questions:** Fetches quiz questions from an external API.  
+✅ **Interactive UI:** Users can select answers and navigate through the quiz.  
+✅ **State Management with `useReducer`:** Manages app states efficiently (loading, active, finished, etc.).  
+✅ **Error Handling:** Displays error messages if fetching questions fails.  
+✅ **Score Calculation:** Tracks and displays the user's score.  
+✅ **Modular Components:** The app is split into reusable components like `Question`, `NextButton`, `StartScreen`, etc.  
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 5cfb506 (Making NextButton component)
+- **React.js** – For building the user interface.  
+- **useReducer & useEffect** – For state management and API handling.  
+- **CSS** – For styling the application.  
+
+## 🎮 How It Works  
+
+1️⃣ The app **fetches questions** from `http://localhost:8000/questions`.  
+2️⃣ The user clicks **"Start"** to begin the quiz.  
+3️⃣ Each question appears with multiple-choice answers.  
+4️⃣ The user selects an answer, and the app **updates the score**.  
+5️⃣ Clicking "Next" moves to the next question.  
+6️⃣ When all questions are answered, the quiz **displays the final score**.  
+
+## ⚙️ Installation & Usage  
+
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/Youssef-Yasser-Mahmoud/React-Quiz-App.git
+cd React-Quiz-App

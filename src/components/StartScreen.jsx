@@ -1,5 +1,4 @@
-function StartScreen({ questions, dispatch }) {
-  const numOfQuestions = questions.length;
+function StartScreen({ numOfQuestions, dispatch }) {
 
   return (
     <div className='start'>

@@ -8,6 +8,10 @@ import Question from './Question';
 import NextButton from './NextButton';
 import Progress from './Progress';
 import FinishScreen from './FinishScreen';
+import Timer from './Timer';
+import Footer from './Footer';
+
+const SECS_PER_QUESTION = 30;
 
 const initialState = {
   questions: [],
@@ -17,6 +21,7 @@ const initialState = {
   answer: null,
   points: 0,
   highScore: 0,
+  secondsRemaining: null,
 };
 
 function reducer(state, action) {
@@ -26,7 +31,7 @@ function reducer(state, action) {
     case 'dataFailed':
       return { ...state, status: 'error' };
     case 'active':
-      return { ...state, status: 'active' };
+      return { ...state, status: 'active', secondsRemaining: state.questions.length * SECS_PER_QUESTION };
     case 'newAnswer': {
       const question = state.questions[state.index];
       return {
@@ -40,17 +45,26 @@ function reducer(state, action) {
     case 'finished':
       return { ...state, status: 'finish', highScore: state.highScore > state.points ? state.highScore : state.points };
     case 'restart':
-    return { ...state, status: 'ready', index: 0, answer: null, points: 0 };
+      return { ...state, status: 'ready', index: 0, answer: null, points: 0 };
+    case 'timer':
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0 ? 'finish' : state.status,
+      };
     default:
       throw new Error('Data Unknown');
   }
 }
 
 export default function App() {
-  const [{ questions, status, index, answer, points, highScore }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index, answer, points, highScore, secondsRemaining }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   const numOfQuestions = questions.length;
   const maxPossiblePoints = questions.reduce((prev, cur) => prev + cur.points, 0);
-
+  
   useEffect(() => {
     fetch('http://localhost:8000/questions')
       .then((data) => data.json())
@@ -76,7 +90,10 @@ export default function App() {
               answer={answer}
             />
             <Question question={questions[index]} dispatch={dispatch} answer={answer} />
-            <NextButton answer={answer} dispatch={dispatch} numOfQuestions={numOfQuestions} index={index} />
+            <Footer>
+              <Timer secondsRemaining={secondsRemaining} dispatch={dispatch} />
+              <NextButton answer={answer} dispatch={dispatch} numOfQuestions={numOfQuestions} index={index} />
+            </Footer>
           </>
         )}
         {status === 'finish' && (

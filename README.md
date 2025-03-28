@@ -28,3 +28,31 @@ A dynamic **Quiz Application** built using **React.js** that allows users to tes
 5️⃣ Clicking "Next" moves to the next question.  
 6️⃣ When all questions are answered, the quiz **displays the final score**.  
 
+## 🔧 Installation & Setup   
+
+### 1️⃣ Clone the Repository  
+
+```sh
+git clone https://github.com/Youssef-Yasser-Mahmoud/React-Quiz-App.git
+cd React-Quiz-App
+```
+
+### 2️⃣ Install Dependencies  
+
+```sh
+npm install
+```
+
+### 3️⃣ Start the Development Server  
+
+```sh
+npm start
+```
+
+### 4️⃣ Start the JSON Server (to Fetch Questions)  
+
+```sh
+npm run server
+```
+
+> **⚠ Note:** The quiz will not work properly without this step.  
